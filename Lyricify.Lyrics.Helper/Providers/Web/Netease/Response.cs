@@ -269,7 +269,6 @@ namespace Lyricify.Lyrics.Providers.Web.Netease
     {
         public string Name { get; set; }
 
-        [JsonConverter(typeof(Helpers.ULongToStringConverter))]
         public string Id { get; set; }
         public List<Ar> Artists { get; set; }
         public List<object> Alias { get; set; }
@@ -289,7 +288,6 @@ namespace Lyricify.Lyrics.Providers.Web.Netease
     {
         public string Name { get; set; }
 
-        [JsonConverter(typeof(Helpers.ULongToStringConverter))]
         public string Id { get; set; }
         [JsonPropertyName("ar")]
         public List<Ar> Artists { get; set; }

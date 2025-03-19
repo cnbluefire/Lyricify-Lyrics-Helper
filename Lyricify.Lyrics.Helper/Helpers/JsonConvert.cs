@@ -86,7 +86,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(List<string>))]
         [JsonSerializable(typeof(Dictionary<string, string>))]
         internal partial class JsonContext : JsonSerializerContext { }
@@ -99,7 +100,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Decrypter.Krc.KugouLyricsResponse))]
         [JsonSerializable(typeof(Decrypter.Krc.KugouTranslation))]
         internal partial class JsonContext_Decrypter_Krc : JsonSerializerContext { }
@@ -112,7 +114,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Decrypter.Qrc.QqLyricsResponse))]
         [JsonSerializable(typeof(Decrypter.Qrc.SongResponse))]
         internal partial class JsonContext_Decrypter_Qrc : JsonSerializerContext { }
@@ -125,7 +128,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Providers.Web.Kugou.SearchSongResponse))]
         [JsonSerializable(typeof(Providers.Web.Kugou.SearchLyricsResponse))]
         internal partial class JsonContext_Providers_Web_Kugou : JsonSerializerContext { }
@@ -138,7 +142,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Providers.Web.Musixmatch.GetTokenResponse))]
         [JsonSerializable(typeof(Providers.Web.Musixmatch.GetTrackResponse))]
         [JsonSerializable(typeof(Providers.Web.Musixmatch.GetTranslationsResponse))]
@@ -152,7 +157,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Providers.Web.Netease.SearchResult))]
         [JsonSerializable(typeof(Providers.Web.Netease.EapiSearchResult))]
         [JsonSerializable(typeof(Providers.Web.Netease.SongUrls))]
@@ -171,7 +177,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Providers.Web.QQMusic.MusicFcgApiResult))]
         [JsonSerializable(typeof(Providers.Web.QQMusic.MusicFcgApiAlternativeResult))]
         [JsonSerializable(typeof(Providers.Web.QQMusic.AlbumResult))]
@@ -189,7 +196,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(List<Lyricify.Lyrics.Parsers.Models.RichSyncedLine>))]
         internal partial class JsonContext_Parsers_Models : JsonSerializerContext { }
 
@@ -200,7 +208,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Lyricify.Lyrics.Parsers.Models.Spotify.SpotifyColorLyrics))]
         internal partial class JsonContext_Parsers_Models_Spotify : JsonSerializerContext { }
 
@@ -211,7 +220,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Lyricify.Lyrics.Parsers.Models.Yrc.CreditsInfo))]
         internal partial class JsonContext_Parsers_Models_Yrc : JsonSerializerContext { }
 
@@ -222,7 +232,8 @@ namespace Lyricify.Lyrics.Helpers
             PropertyNameCaseInsensitive = true,
             PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase,
             UseStringEnumConverter = true,
-            WriteIndented = false)]
+            WriteIndented = false,
+            Converters = new[] { typeof(NumberToStringConverter) })]
         [JsonSerializable(typeof(Providers.Web.QQMusic.Api.SearchRequestModel))]
         [JsonSerializable(typeof(Providers.Web.QQMusic.Api.GetAlbumSongListRequestModel))]
         [JsonSerializable(typeof(Providers.Web.QQMusic.Api.GetSingerSongsRequestModel))]
@@ -231,19 +242,53 @@ namespace Lyricify.Lyrics.Helpers
         internal partial class JsonContext_Providers_Web_QQMusic_Api : JsonSerializerContext { }
     }
 
-    public class ULongToStringConverter : JsonConverter<string>
+    public class NumberToStringConverter : JsonConverter<string>
     {
         public override string? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if (typeof(ulong) == typeToConvert) return $"{reader.GetUInt64()}";
+            if (reader.TokenType == JsonTokenType.Number)
+            {
+                if (typeof(System.Byte) == typeToConvert) return $"{reader.GetByte()}";
+                if (typeof(System.Char) == typeToConvert) return $"{unchecked((char)reader.GetInt16())}";
+                if (typeof(System.Int16) == typeToConvert) return $"{reader.GetInt16()}";
+                if (typeof(System.Int32) == typeToConvert) return $"{reader.GetInt32()}";
+                if (typeof(System.Int64) == typeToConvert) return $"{reader.GetInt64()}";
+                if (typeof(System.SByte) == typeToConvert) return $"{reader.GetSByte()}";
+                if (typeof(System.UInt16) == typeToConvert) return $"{reader.GetUInt16()}";
+                if (typeof(System.UInt32) == typeToConvert) return $"{reader.GetUInt32()}";
+                if (typeof(System.UInt64) == typeToConvert) return $"{reader.GetUInt64()}";
 
-            return null;
+                return $"{reader.GetInt64()}";
+            }
+            else if (reader.TokenType == JsonTokenType.String)
+            {
+                return reader.GetString();
+            }
+            else return null;
         }
 
         public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
         {
-            var ulongValue = ulong.Parse(value);
-            writer.WriteNumberValue(ulongValue);
+            writer.WriteStringValue(value);
+        }
+
+        public override string ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var propertyName = reader.GetString();
+#if NET7_0_OR_GREATER
+            ArgumentNullException.ThrowIfNullOrEmpty(propertyName);
+#else
+            if (string.IsNullOrEmpty(propertyName))
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+#endif
+            return propertyName;
+        }
+
+        public override void WriteAsPropertyName(Utf8JsonWriter writer, [DisallowNull] string value, JsonSerializerOptions options)
+        {
+            writer.WritePropertyName(value);
         }
     }
 }
